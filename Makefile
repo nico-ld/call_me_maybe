@@ -1,6 +1,6 @@
 VENV	:= .venv
 PYTHON	:= $(VENV)/bin/python3
-UV		:= $(PYTHON) -m uv
+PIP		:= $(PYTHON) -m pip
 
 help:
 	@printf "Usage:\n"
@@ -13,8 +13,8 @@ help:
 	@printf "make uninstall - While outside the virtual environment, uninstall .venv and dependencies\n"
 
 install:
-	@$(PYTHON) -m venv .venv
-	@$(UV) install -r requirements.txt
+	@python3 -m venv $(VENV)
+	@$(PIP) install -r requirements.txt
 
 run:
 	@$(PYTHON) -m srcs.main
